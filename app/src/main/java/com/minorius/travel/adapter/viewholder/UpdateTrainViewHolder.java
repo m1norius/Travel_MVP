@@ -29,6 +29,10 @@ public class UpdateTrainViewHolder extends BaseViewHolder<UpdateTrain> {
 
     @OnClick
     public void onClick(){
-        fragmentView.loadData();
+        if (MainActivity.isOnline()){
+            fragmentView.loadData();
+        }else {
+            Snackbar.make(itemView, "Інтернет відсутній", Snackbar.LENGTH_SHORT).show();
+        }
     }
 }
